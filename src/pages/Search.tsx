@@ -1,6 +1,5 @@
 import Button from '@src/components/Button';
 import Header from '@src/components/Header';
-import Logo from '@src/components/Logo';
 import { useNavigate } from 'react-router-dom';
 
 export default function Search() {
