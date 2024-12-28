@@ -24,6 +24,7 @@
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
     "react/button-has-type": "warn",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_default"] }]
   }
 }

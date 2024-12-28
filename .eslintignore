@@ -1,1 +1,4 @@
-vite.config.ts;
+dist/
+assets/
+*.config.js
+*.config.ts
