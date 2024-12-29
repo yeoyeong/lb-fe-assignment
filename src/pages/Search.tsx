@@ -11,9 +11,14 @@ export default function Search() {
 
   return (
     <div>
-      <Header />
+      <Header>
+        <input className='mr-3 h-14 w-[231px] rounded-[10px] border border-solid border-black py-2 text-sm' />
+        <Button size='large' onClick={handleNavigation}>
+          검색하기
+        </Button>
+      </Header>
       검색페이지입니다
-      <Button size='small' onClick={handleNavigation}>
+      <Button size='large' onClick={handleNavigation}>
         메인 페이지 가기
       </Button>
     </div>
