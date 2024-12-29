@@ -1,3 +1,4 @@
+import Layout from '@src/components/Layout';
 import Home from '@src/pages/Home';
 import Search from '@src/pages/Search';
 import { RouteObject } from 'react-router-dom';
@@ -24,4 +25,11 @@ const publicPages: ExtendedRouteObject[] = [
   },
 ];
 
-export const routerList: ExtendedRouteObject[] = [...publicPages];
+export const routerList: ExtendedRouteObject[] = [
+  {
+    path: '/',
+    element: <Layout />, // 공통 레이아웃 설정
+    children: publicPages, // 하위 라우트로 publicPages 추가
+    role: 1,
+  },
+];

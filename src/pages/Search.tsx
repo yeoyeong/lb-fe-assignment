@@ -1,9 +1,12 @@
 import Button from '@src/components/Button';
 import Header from '@src/components/Header';
-import Layout from '@src/components/Layout';
+import SearchInput from '@src/components/search.Input';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Search() {
+  // prettier-ignore
+  const [query, setQuery] = useState <string>("");
   const navigate = useNavigate();
 
   const handleNavigation = () => {
@@ -11,19 +14,19 @@ export default function Search() {
   };
 
   return (
-    <Layout>
+    <div className='h-full'>
       <Header>
-        <div>
-          <input className='mr-3 h-14 w-[151px] rounded-[10px] border border-solid border-black py-2 text-sm' />
-          <Button size='large' onClick={handleNavigation}>
-            검색하기
-          </Button>
-        </div>
+        <SearchInput query={query} setQuery={setQuery} />
       </Header>
-      검색페이지입니다
-      {/* <Button size='large' onClick={handleNavigation}>
-        메인 페이지 가기
-      </Button> */}
-    </Layout>
+      <div className='flex h-full w-full flex-col items-center justify-center gap-8'>
+        <p className='text-bold text-[2.5rem] font-bold leading-[56px]'>
+          검색페이지입니다
+        </p>
+        <Button size='large' onClick={handleNavigation}>
+          메인 페이지 가기
+        </Button>
+      </div>
+      {/* <SearchList data={filteredData} /> */}
+    </div>
   );
 }
