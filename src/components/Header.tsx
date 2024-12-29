@@ -13,17 +13,15 @@ export default function Header({ children }: Props) {
   };
 
   return (
-    <header className='flex w-full justify-between border-b-4 border-solid border-black bg-white px-[5%] py-11'>
+    <header className='fixed top-0 flex h-[150px] w-full items-center justify-between border-b-4 border-solid border-black bg-white pl-[7.71%] pr-[6.88%]'>
       <Logo />
-      <div>
-        {!children ? (
-          <Button size='small' onClick={handleNavigation}>
-            검색 페이지 가기
-          </Button>
-        ) : (
-          children
-        )}
-      </div>
+      {!children ? (
+        <Button size='large' onClick={handleNavigation}>
+          검색 페이지 가기
+        </Button>
+      ) : (
+        children
+      )}
     </header>
   );
 }
