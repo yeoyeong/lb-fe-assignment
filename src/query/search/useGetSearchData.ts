@@ -26,6 +26,7 @@ const useGetSearchData = ({
     const result = useQuery<Search[]>({
         queryKey: ['search', payload],
         queryFn: () => getSearchData({ payload }),
+        retry: 3,
         enabled: !!payload, 
     });
 
