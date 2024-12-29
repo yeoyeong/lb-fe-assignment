@@ -1,6 +1,6 @@
 export const getSearchData = async ({ payload }: { payload: string }) => {
   try {
-    const response = await fetch('/foo/data.json', {
+    const response = await fetch('/foo/dsata.json', {
       method: 'GET',
     });
 
