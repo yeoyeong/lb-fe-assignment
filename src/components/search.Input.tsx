@@ -22,23 +22,29 @@ export default function SearchInput({ query, setQuery }: Props) {
       return;
     }
 
-    // 유효한 경우 서버 요청
-    // const response = await fetch(`/api/search?query=${payload}`);
-    // const data = await response.json();
-    console.log('통과');
+    setSearchParams({ query: payload }); // URL 쿼리 파라미터 업데이트
   };
 
   return (
-    <form onSubmit={event => handleSearch(event, query)}>
+    <form
+      onSubmit={event => handleSearch(event, query)}
+      className='flex items-center'>
       <input
-        className='mr-3 h-14 w-[151px] rounded-[10px] border border-solid border-black py-2 pl-4 text-sm'
+        className='max-mobile:h-7 max-mobile:w-[120px] mr-2 h-14 w-[231px] rounded-[10px] border border-solid border-black py-2 pl-4 text-sm text-[#5C6370] max-sm:w-[100px]'
         placeholder='입력...'
         value={query}
         onChange={e => setQuery(e.target.value)}
       />
-      <Button size='large' type='submit'>
-        검색하기
-      </Button>
+      <div className='max-mobile:block hidden'>
+        <Button size='small' type='submit'>
+          검색하기
+        </Button>
+      </div>
+      <div className='max-mobile:hidden block'>
+        <Button size='large' type='submit'>
+          검색하기
+        </Button>
+      </div>
     </form>
   );
 }

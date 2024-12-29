@@ -7,7 +7,8 @@ interface Props {
 }
 export default function Layout({ children, classProps }: Props) {
   return (
-    <div className={`${classProps} h-screen w-full pt-[150px]`}>
+    <div
+      className={`${classProps} max-mobile:pt-[70px] h-screen w-full pt-[150px]`}>
       {children}
       <Toast />
       <Outlet />

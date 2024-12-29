@@ -1,32 +1,21 @@
-import Button from '@src/components/Button';
 import Header from '@src/components/Header';
 import SearchInput from '@src/components/search.Input';
+import SearchList from '@src/components/search.List';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Search() {
+  const [searchParams] = useSearchParams();
+  const query_params = searchParams.get('query') || ''; // 쿼리 파라미터에서 검색어 가져오기
   // prettier-ignore
-  const [query, setQuery] = useState <string>("");
-  const navigate = useNavigate();
-
-  const handleNavigation = () => {
-    navigate('/');
-  };
+  const [query, setQuery] = useState <string>(query_params ?? "");
 
   return (
     <div className='h-full'>
       <Header>
         <SearchInput query={query} setQuery={setQuery} />
       </Header>
-      <div className='flex h-full w-full flex-col items-center justify-center gap-8'>
-        <p className='text-bold text-[2.5rem] font-bold leading-[56px]'>
-          검색페이지입니다
-        </p>
-        <Button size='large' onClick={handleNavigation}>
-          메인 페이지 가기
-        </Button>
-      </div>
-      {/* <SearchList data={filteredData} /> */}
+      <SearchList />
     </div>
   );
 }
